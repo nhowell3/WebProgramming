@@ -5,10 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>External Style</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        p{
+            color: #DDDDDD;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        table {
+            /* width: 90%; */
+            max-width: 90vw;
+            border: 1px solid white;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        td {
+            width: 50%;
+            height: auto;
+        }
+        td * {
+            color: black;
+        }
+        td h2 {
+            font-size: 50px;
+        }
+        td p {
+            font-size: 20px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: fill;
+            margin: auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <h1> Welcome to External Styling </h1>
-    <p> This is an example of External styles </p>
-    <p class="highlight"> External styles allows you to define styles for document in one file. </p>
+    <h1> Some Cool Games </h1>
+    <p class="emoji">👍</p>
+    <h2 class="center-text"> I don't really have a favorite game, but here are some cool ones: </h2>
+    <div style="background-color: whitesmoke; padding-top: 2rem; padding-bottom: 2rem;">
+        <table>
+            <tr>
+                <td>
+                    <img src="Terraria.jpg" alt="Terraria">
+                </td>
+                <td>
+                    <h2>Terraria</h2>
+                    <p class="table-description">
+                        Probably the game I've sunk the most amount of time into
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:2rem;"></tr>
+            <tr>
+                <td>
+                    <h2>Hollow Knight</h2>
+                    <p class="table-description">
+                        Probably the game I've beaten the most amount of times
+                    </p>
+                </td>
+                <td>
+                    <img src="Hollow Knight.jpg" alt="Terraria">
+                </td>
+            </tr>
+            <tr style="height:2rem;"></tr>
+            <tr>
+                <td>
+                    <img src="lttp.jpg" alt="Terraria">
+                </td>
+                <td>
+                    <h2>Link to the Past</h2>
+                    <p class="table-description">
+                        A game I've been playing more recently
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h2>So yeah, those are some cool games.</h2>
+    <p class="center-text" style="margin-bottom: 5rem;">If you haven't played them, you should give them a shot</p>
+
 </body>
 </html>
