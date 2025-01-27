@@ -1,0 +1,72 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.box {
+    width: 500px;
+    height: 250px;
+    padding: 20px;
+    border: 5px solid #000;
+    margin: 10px;
+    background-color: #eee;
+    background: linear-gradient(to top left, #777, #eee 75%);
+    filter: drop-shadow(5px 5px 4px gray);
+}
+
+.name {
+    font-size: 42pt;
+    margin: 0px;
+    mix-blend-mode: difference;
+    color: white;
+}
+
+.title {
+    font-size: 32pt;
+    margin: 0px;
+    margin-top: 12px;
+    mix-blend-mode: difference;
+    color: white;
+}
+
+.contact-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.contact-item {
+    font-size: 12pt;
+    white-space: nowrap;
+    margin: 0 auto 0 auto;
+    font-weight: 500;
+}
+
+.background {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.large-circle{
+    border-radius: 100%;
+    position: absolute
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transform: scale(1);
+    transition: transform 250ms;
+}
+
+a:hover {
+    color: orange;
+    transform: scale(1.05);
+    transition: transform 250ms;
+}
