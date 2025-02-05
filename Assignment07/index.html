@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Howell">
+    <title>Data Collection</title>
+
+    <script>
+        function submitForm(form){
+            let outputDom = document.getElementById("information")
+
+            let name = form.elements["name"].value;
+            let email = form.elements["email"].value;
+            let password = form.elements["password"].value;
+            let age = form.elements["age"].value;
+            let gender = form.elements["gender"].value;
+            let country = form.elements["country"].value;
+            let agreed = form.elements["terms"].value;
+
+            outputDom.innerHTML = name + email + password + age + gender + country + agreed
+
+            form.reset();
+        }
+    </script>
+</head>
+<body>
+    <form>
+        Name: <input 
+            type="text" 
+            id="name"
+            placeholder="Enter your name here"
+            size="15"
+            autofocus
+        >
+        <br>
+        Email: <input
+            type="email"
+            id="email"
+            placeholder = "Enter your email here"  
+            size="15" 
+        >
+        Password: <input
+            type="password"
+            id="password"
+            placeholder = "Enter your password here"  
+            size="15" 
+        >
+        Age: <input
+            type="number"
+            id="age"
+            placeholder = "Enter your age here"  
+            size="15" 
+        >
+        <fieldset id="gender">
+            Male: <input type="radio" id="male" name="gender" value="male">
+            Female: <input type="radio" id="female" name="gender" value="female">
+            Other: <input type="radio" id="other" name="gender" value="other">
+        </fieldset>
+        <select id="country">
+            <option>USA</option>
+            <option>Mexico</option>
+            <option>Canada</option>
+            <option>Russia</option>
+            <option>China</option>
+        </select>
+        Agree to Terms and Conditions<input
+            type="checkbox"
+            id="terms"
+        >
+
+        <input 
+            type="button"
+            value="Submit"
+            onclick="submitForm(this.form);"
+        >
+
+        <p id="information">
+
+        </p>
+    </form>
+</body>
+</html>
