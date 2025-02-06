@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="author" content="Howell">
     <title>Data Collection</title>
+    <link rel="stylesheet" href="styles.css">
 
     <script>
         function submitForm(form){
@@ -15,9 +16,45 @@
             let age = form.elements["age"].value;
             let gender = form.elements["gender"].value;
             let country = form.elements["country"].value;
-            let agreed = form.elements["terms"].value;
+            let agreed = form.elements["terms"].checked;
+            
+            outputDom.className = "card";
+            if (agreed == false){
+                outputDom.innerHTML = "You must agree to the Terms and Conditions";
+                outputDom.className += " red-text";
+                return;
+            }
 
-            outputDom.innerHTML = name + email + password + age + gender + country + agreed
+            outputDom.innerHTML = 
+            `
+                <h1>${name}</h1>
+                <div class="grid">
+                    <div class="grid-cell">
+                        <h2>Email</h2>
+                        <h3>${email}</h3>
+                    </div>
+                    <div class="grid-cell">
+                        <h2>Password</h2>
+                        <h3>${password}</h3>
+                    </div>
+                    <div class="grid-cell">
+                        <h2>Age</h2>
+                        <h3>${age}</h3>
+                    </div>
+                    <div class="grid-cell">
+                        <h2>Gender</h2>
+                        <h3>${gender}</h3>
+                    </div>
+                    <div class="grid-cell">
+                        <h2>Country</h2>
+                        <h3>${country}</h3>
+                    </div>
+                    <div class="grid-cell">
+                        <h2>Agreed</h2>
+                        <h3>${agreed}</h3>
+                    </div>
+                </div>
+            `
 
             form.reset();
         }
@@ -25,37 +62,53 @@
 </head>
 <body>
     <form>
-        Name: <input 
+        <label>Name</label> 
+        <input 
             type="text" 
             id="name"
             placeholder="Enter your name here"
             size="15"
             autofocus
         >
-        <br>
-        Email: <input
+        <label>Email</label> 
+        <input
             type="email"
             id="email"
             placeholder = "Enter your email here"  
             size="15" 
         >
-        Password: <input
+        <label>Password</label> 
+        <input
             type="password"
             id="password"
             placeholder = "Enter your password here"  
             size="15" 
         >
-        Age: <input
+        <label>Age</label> 
+        <input
             type="number"
             id="age"
             placeholder = "Enter your age here"  
             size="15" 
         >
+        <br>
         <fieldset id="gender">
-            Male: <input type="radio" id="male" name="gender" value="male">
-            Female: <input type="radio" id="female" name="gender" value="female">
-            Other: <input type="radio" id="other" name="gender" value="other">
+            <label>Gender</label>
+            <br>
+            <div class="flex-box">
+                <label class="flex-item">Male</label>
+                <label class="flex-item">Female</label>
+                <label class="flex-item">Other</label>
+            </div>
+            <br>
+            <div class="flex-box">
+                <input type="radio" id="male" name="gender" value="male">
+                <input type="radio" id="female" name="gender" value="female">
+                <input type="radio" id="other" name="gender" value="other">
+            </div>
         </fieldset>
+        <br>
+        <label>Country</label>
         <select id="country">
             <option>USA</option>
             <option>Mexico</option>
@@ -63,20 +116,25 @@
             <option>Russia</option>
             <option>China</option>
         </select>
-        Agree to Terms and Conditions<input
-            type="checkbox"
-            id="terms"
-        >
+        <br>
+        <div class="flex-box terms-container">
+            <Label class="flex-item terms">Agree to Terms and Conditions</Label>
+            <input
+                class="flex-item"
+                type="checkbox"
+                id="terms"
+            >
+        </div>
+        <br>
 
         <input 
             type="button"
             value="Submit"
             onclick="submitForm(this.form);"
         >
-
-        <p id="information">
-
-        </p>
     </form>
+    <p id="information">
+
+    </p>
 </body>
 </html>
