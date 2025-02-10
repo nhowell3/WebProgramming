@@ -1,0 +1,60 @@
+body {
+    background-color:rgb(212, 220, 232);
+}
+
+form, .card {
+    width: 50%;
+    max-width: 768px;
+    min-width: 350px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    filter: drop-shadow(0px 3px 8px #555);
+}
+
+.field-error {
+    border: 1px solid red;
+}
+
+input, select {
+    display: block;
+    width: 75%;
+    padding: 1rem;
+    margin: 0 auto 1rem auto;
+    border-radius: 1rem;
+    border: 1px grey solid;
+    filter: drop-shadow(0px 2px 1px #aaa);
+    font-size: 12pt;
+    background-color: white;
+}
+
+label {
+    text-align: center;
+    display: block;
+    font-size: 16pt;
+}
+
+fieldset {
+    border-radius: 1rem;
+    width: 75%;
+    margin: 0 auto;
+}
+
+input[type=button] {
+    background-color: white;
+    color: black;
+    transform: scale(1);
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out, transform 250ms ease-in-out;
+}
+
+input[type=button]:hover {
+    background-color: blue;
+    color: white;
+    transform: scale(1.05);
+    transition: all 250ms ease-in-out;
+}
+
+.validation-text {
+    color: red;
+}

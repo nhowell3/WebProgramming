@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Howell">
+    <title>In Class Forms Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="form">
+        <label>
+            Name:
+            <input
+                id="name"
+                type="text"
+                onchange="fieldValidationStyling(this, isNameValid(this.value), 'validate-name')"
+                required
+            >
+            <div id="validate-name" class="validation-text"></div>
+        </label>
+        <label>
+            Email:
+            <input
+                id="email"
+                type="email"
+                onchange="fieldValidationStyling(this, isEmailValid(this.value), 'validate-email')"
+                required
+            >
+            <div id="validate-email" class="validation-text"></div>
+        </label>
+        <label>
+            Age:
+            <input
+                id="age"
+                type="number"
+                min="18"
+                max="100"
+                onchange="fieldValidationStyling(this, isAgeValid(this.value), 'validate-age')"
+            >
+            <div id="validate-age" class="validation-text"></div>
+        </label>
+        <input
+            id="submit"
+            type="button"
+            value="Submit"
+            onclick="validateForm(this.form)"
+        >
+        <p id="output"></p>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
