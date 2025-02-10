@@ -1,3 +1,7 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
     background-color:rgb(212, 220, 232);
 }
@@ -14,14 +18,14 @@ form, .card {
 }
 
 .field-error {
-    border: 1px solid red;
+    border: 2px solid red !important;
 }
 
 input, select {
     display: block;
     width: 75%;
     padding: 1rem;
-    margin: 0 auto 1rem auto;
+    margin: 0 auto 0.5rem auto;
     border-radius: 1rem;
     border: 1px grey solid;
     filter: drop-shadow(0px 2px 1px #aaa);
@@ -42,6 +46,7 @@ fieldset {
 }
 
 input[type=button] {
+    margin-top: 3rem;
     background-color: white;
     color: black;
     transform: scale(1);
@@ -56,5 +61,24 @@ input[type=button]:hover {
 }
 
 .validation-text {
+    overflow: hidden;
     color: red;
+    margin-bottom: 1rem;
+}
+
+.hide-valid {
+    height: 0px;
+    transition: height 250ms ease-in-out;
+}
+
+.show-valid {
+    height: 25px;
+    transition: height 250ms ease-in-out;
+}
+
+.success-text {
+    color: green;
+    text-align: center;
+    font-size: 16pt;
+    margin-top: 2rem;
 }

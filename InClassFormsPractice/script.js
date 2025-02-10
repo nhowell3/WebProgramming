@@ -15,33 +15,15 @@ function isAgeValid(age){
 
 function validateForm(form){
     const output = document.getElementById("output");
-    let badFields = []
 
-    // Get Values
-    let name = form.elements['name'].value;
-    let email = form.elements['email'].value;
-    let age = form.elements['age'].value;
+    let name = validateField(form.elements['name']);
+    let email = validateField(form.elements['email']);
+    let age = validateField(form.elements['age']);
 
-    // Validation
+    let isValid = name && email && age;
 
-    if (!isNameValid(name)){
-        badFields.push('Name must be longer than 0 characters');
-    }
-
-    if (!isEmailValid(email)){
-        badFields.push('Email is NOT a valid email address');
-    }
-
-    if (!isAgeValid(age)){
-        badFields.push('Age must be between 18 and 100')
-    }
-
-    // Display
-    if (badFields.length > 0){
+    if (!isValid){
         output.innerHTML= "";
-        for (let i = 0; i < badFields.length; i++){
-            output.innerHTML += badFields[i] + '<br>';
-        }
         return;
     }
     output.innerHTML = "Form submitted successfully!";
@@ -49,15 +31,37 @@ function validateForm(form){
     form.reset();
 }
 
-function fieldValidationStyling(field, valid, validationId, validationError) {
-    const validTextDom = document.getElementById(validationId);
+function validateField(dom) {
+    if (!dom) return;
 
-    if (valid && field.classList.contains('field-error')){
-        field.classList.remove("field-error")
-        validTextDom.innerHTML = "";
+    const errorMessage = dom.getAttribute('error');
+    const errorOutput = document.getElementById('validate-' + dom.id)
+
+    errorOutput.innerHTML = errorMessage;
+
+    errorOutput.classList.remove('show-valid');
+    errorOutput.classList.remove('hide-valid');
+
+    let isValid;
+    switch (dom.id){
+        case "name":
+            isValid = isNameValid(dom.value);
+            break;
+        case "email":
+            isValid = isEmailValid(dom.value);
+            break;
+        case "age":
+            isValid = isAgeValid(dom.value);
+            break;
     }
-    else if (!valid && !field.classList.contains('field-error')){
-        field.classList.add("field-error")
-        validTextDom.innerHTML = validationError;
+    
+    if (isValid){
+        errorOutput.classList.add("hide-valid");
+        dom.classList.remove("field-error");
+    } else {
+        errorOutput.classList.add("show-valid");
+        dom.classList.add("field-error");
     }
+
+    return isValid;
 }

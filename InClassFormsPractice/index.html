@@ -13,20 +13,22 @@
             <input
                 id="name"
                 type="text"
-                onchange="fieldValidationStyling(this, isNameValid(this.value), 'validate-name')"
+                onchange="validateField(this)"
+                error="Name is required"
                 required
             >
-            <div id="validate-name" class="validation-text"></div>
+            <div id="validate-name" class="validation-text hide-valid"></div>
         </label>
         <label>
             Email:
             <input
                 id="email"
                 type="email"
-                onchange="fieldValidationStyling(this, isEmailValid(this.value), 'validate-email')"
+                onchange="validateField(this)"
+                error="Email is Invalid"
                 required
             >
-            <div id="validate-email" class="validation-text"></div>
+            <div id="validate-email" class="validation-text hide-valid"></div>
         </label>
         <label>
             Age:
@@ -35,9 +37,10 @@
                 type="number"
                 min="18"
                 max="100"
-                onchange="fieldValidationStyling(this, isAgeValid(this.value), 'validate-age')"
+                onchange="validateField(this)"
+                error="Must be between the age of 18 and 100"
             >
-            <div id="validate-age" class="validation-text"></div>
+            <div id="validate-age" class="validation-text hide-valid"></div>
         </label>
         <input
             id="submit"
@@ -45,7 +48,7 @@
             value="Submit"
             onclick="validateForm(this.form)"
         >
-        <p id="output"></p>
+        <p id="output" class="success-text"></p>
     </form>
     <script src="script.js"></script>
 </body>
