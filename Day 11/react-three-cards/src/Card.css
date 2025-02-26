@@ -6,4 +6,20 @@
     text-align: center;
     color: aliceblue;
     margin: 10px;
+    transform: scale(1);
+    transition: transform 250ms ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 250ms ease-in-out;
+}
+
+.button {
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    color: white;
+    border: 2px solid white;
+    background-color: transparent;
+    box-shadow: 0px 1px 3px white;
 }

@@ -6,6 +6,9 @@ export default function Card({title, content, color}){
         <div className="card" style={{backgroundColor: color}}>
             <h2>{title}</h2>
             <p>{content}</p>
+            <button className='button' onClick={() => alert(title)}>
+                Click Me!
+            </button>
         </div>
     );
 }
