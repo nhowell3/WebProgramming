@@ -19,3 +19,7 @@ app.use((err, req, res, next) => {
     res.status(500).send({error: 'Internal Server Error'});
 });
 
+// Start Server
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
