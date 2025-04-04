@@ -29,4 +29,20 @@ app.get("/projects", async (req, res) => {
     }
 });
 
+app.post("/projects", async (req, res) => {
+    try {
+        const {project_name, description, date_completed, technologies_used, project_url} = req.body;
+
+        // Insert data
+        const result = await pool.query(
+            "INSERT INTO completed_projects (project_name, description, date_completed, technologies_used, project_url) VALUES ($1,$2,$3,$4,$5) returning *",
+            [project_name, description, date_completed, technologies_used, project_url]
+        );
+        res.status(201).json(result.rows[0]);
+    } catch(err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+});
+
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
