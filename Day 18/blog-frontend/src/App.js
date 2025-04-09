@@ -48,12 +48,12 @@ export default function App({}){
 
       <h2>Blog Posts</h2>
 
-      {posts.map(post => {
+      {posts.map((post) => (
         <div key={post.id} style={{border: '1px solid #ccc', padding: '10px', marginBottom: '15px'}}>
           <h3>{post.title}</h3>
           <p>{post.body}</p>
         </div>
-      })}
+      ))}
 
     </div>
   );
